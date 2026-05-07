@@ -1,24 +1,30 @@
 const bestsellers = [
   {
-    title: "Imperial Brass Sculptures",
-    subtitle: "Museum-grade metalwork with artisan detailing.",
+    title: "Royal Rajasthani Tote",
+    subtitle: "Hand-embroidered silk & leather luxury tote with mirror work.",
     tag: "Signature Series"
   },
   {
-    title: "Palatial Wood Carvings",
-    subtitle: "Hand-carved luxury panels for premium spaces.",
+    title: "Jodhpur Suede Clutch",
+    subtitle: "Velvet-lined suede evening clutch with zardozi goldwork.",
     tag: "Limited Batch"
   },
   {
-    title: "Gemstone Inlay Decor",
-    subtitle: "Bespoke gemstone accents for luxury interiors.",
+    title: "Desert Dune Satchel",
+    subtitle: "Full-grain leather satchel with camel bone detailing.",
     tag: "Export Ready"
   },
   {
-    title: "Royal Tableware",
-    subtitle: "Premium hospitality-ready brassware and accents.",
-    tag: "Bulk Order"
+    title: "Kundan Bridal Potli",
+    subtitle: "Silk potli with kundan jewel embellishments — bridal collection.",
+    tag: "Signature Series"
+  },
+  {
+    title: "Pashmina Weekender",
+    subtitle: "Cashmere-blend weekender with structured leather base.",
+    tag: "Ultra Premium"
   }
 ];
 
 export default bestsellers;
+

@@ -31,20 +31,43 @@ const config: Config = {
         }
       },
       fontFamily: {
-        heading: ["var(--font-heading)", "serif"],
-        body: ["var(--font-body)", "sans-serif"]
+        heading: ["var(--font-heading)", "Georgia", "serif"],
+        body: ["var(--font-body)", "-apple-system", "sans-serif"]
       },
       boxShadow: {
         luxe: "0 24px 80px -40px rgba(255, 255, 255, 0.45)",
-        glow: "0 0 40px rgba(59, 107, 255, 0.35)"
+        glow: "0 0 40px rgba(59, 107, 255, 0.35)",
+        "luxe-gold": "0 8px 40px -10px rgba(179,155,115,0.5)"
       },
       backgroundImage: {
-        "hero-radial": "radial-gradient(circle at top left, rgba(59,107,255,0.3), transparent 55%)",
-        "hero-glow": "radial-gradient(circle at 70% 20%, rgba(179,155,115,0.25), transparent 50%)"
+        "hero-radial":
+          "radial-gradient(circle at top left, rgba(59,107,255,0.3), transparent 55%)",
+        "hero-glow":
+          "radial-gradient(circle at 70% 20%, rgba(179,155,115,0.25), transparent 50%)",
+        "gold-shimmer":
+          "linear-gradient(105deg, transparent 40%, rgba(179,155,115,0.4) 50%, transparent 60%)"
+      },
+      animation: {
+        shimmer: "shimmer 2.5s infinite",
+        "spin-slow": "spin 12s linear infinite",
+        "float-y": "floatY 4s ease-in-out infinite"
+      },
+      keyframes: {
+        shimmer: {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" }
+        },
+        floatY: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-12px)" }
+        }
       }
     }
   },
-  plugins: []
+  plugins: [
+    require("@tailwindcss/forms")({ strategy: "class" }),
+    require("@tailwindcss/typography")
+  ]
 };
 
 export default config;

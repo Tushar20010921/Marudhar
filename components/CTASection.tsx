@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -14,7 +15,7 @@ export default function CTASection() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="font-heading text-3xl sm:text-4xl">
-                Curate Bespoke Craft Collections for Your Clients
+                Curate Bespoke Bag Collections for Your Clients
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
@@ -26,12 +27,18 @@ export default function CTASection() {
           </div>
           <Reveal delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-6 py-3 rounded-full bg-white text-neutral-950 font-semibold">
+              <Link
+                href="/b2b-exports"
+                className="px-6 py-3 rounded-full bg-white text-neutral-950 font-semibold text-center hover:bg-luxe-100 transition-colors"
+              >
                 Request Proposal
-              </button>
-              <button className="px-6 py-3 rounded-full border border-white/20 text-white">
-                Download Lookbook
-              </button>
+              </Link>
+              <Link
+                href="/collection"
+                className="px-6 py-3 rounded-full border border-white/20 text-white text-center hover:border-white/40 transition-colors"
+              >
+                View Collection
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -39,3 +46,4 @@ export default function CTASection() {
     </section>
   );
 }
+
