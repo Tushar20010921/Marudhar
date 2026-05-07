@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-neutral-950 text-white font-body antialiased;
+}
+
+.luxe-gradient {
+  background: linear-gradient(120deg, rgba(179, 155, 115, 0.2), rgba(59, 107, 255, 0.15));
+}
+
+.section-padding {
+  @apply px-6 sm:px-10 lg:px-16;
+}
+
+.glass {
+  background: rgba(8, 8, 12, 0.6);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
