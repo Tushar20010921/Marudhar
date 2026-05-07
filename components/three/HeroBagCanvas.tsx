@@ -138,7 +138,8 @@ export default function HeroBagCanvas() {
           position={[4, 6, 4]}
           intensity={1.6}
           castShadow
-          shadow-mapSize={[512, 512]}
+          shadow-mapSize-width={512}
+          shadow-mapSize-height={512}
         />
         <pointLight position={[-4, 2, -2]} intensity={0.8} color="#b39b73" />
         <pointLight position={[2, -2, 3]} intensity={0.4} color="#6b90ff" />

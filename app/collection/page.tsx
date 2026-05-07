@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from "react";
 import { Filter } from "lucide-react";
-import type { Metadata } from "next";
 import SectionHeader from "@/components/SectionHeader";
 import FilterSidebar from "@/components/collection/FilterSidebar";
 import ProductGrid from "@/components/collection/ProductGrid";

@@ -7,7 +7,7 @@ import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 export const metadata: Metadata = {
   title: {
-    default: "MARUDHAR HANDICRAFTS — Premium Luxury Bags",
+    default: "Marudhar Handicrafts — Premium Luxury Bags",
     template: "%s | Marudhar Handicrafts"
   },
   description:
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "artisan bags wholesale"
   ],
   openGraph: {
-    title: "MARUDHAR HANDICRAFTS — Premium Luxury Bags",
+    title: "Marudhar Handicrafts — Premium Luxury Bags",
     description:
       "Handcrafted luxury bags from master artisans in Rajasthan. Available for global export and B2B wholesale.",
     type: "website",
