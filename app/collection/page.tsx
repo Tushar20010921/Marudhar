@@ -1,40 +1,83 @@
+"use client";
+
+import { useState, useMemo } from "react";
+import { Filter } from "lucide-react";
+import type { Metadata } from "next";
 import SectionHeader from "@/components/SectionHeader";
-import Reveal from "@/components/Reveal";
+import FilterSidebar from "@/components/collection/FilterSidebar";
+import ProductGrid from "@/components/collection/ProductGrid";
+import products from "@/data/products";
+
+type FilterState = {
+  category: string;
+  material: string;
+  exportOnly: boolean;
+};
 
 export default function CollectionPage() {
+  const [filters, setFilters] = useState<FilterState>({
+    category: "All",
+    material: "All",
+    exportOnly: false
+  });
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const filtered = useMemo(() => {
+    return products.filter((p) => {
+      if (filters.category !== "All" && p.category !== filters.category)
+        return false;
+      if (filters.material !== "All" && p.material !== filters.material)
+        return false;
+      if (filters.exportOnly && !p.exportReady) return false;
+      return true;
+    });
+  }, [filters]);
+
   return (
-    <div className="space-y-16">
-      <section className="section-padding">
+    <div className="pb-24">
+      {/* Header */}
+      <section className="section-padding mb-10">
         <SectionHeader
           eyebrow="The Collection"
-          title="Luxury Craftworks Designed for Premium Spaces"
-          description="Explore curated lines in decor, furniture accents, sculpture, and bespoke gifting for bulk buyers."
+          title="Luxury Bags Crafted for Premium Markets"
+          description="Explore our full range of artisan bags — available for sampling, customization, and bulk export worldwide."
         />
+        <div className="flex items-center justify-between mt-6">
+          <p className="text-white/50 text-sm">
+            {filtered.length} product{filtered.length !== 1 ? "s" : ""} found
+          </p>
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="flex items-center gap-2 px-4 py-2 glass rounded-full text-sm text-white/70 hover:text-white md:hidden"
+          >
+            <Filter className="w-4 h-4" />
+            Filters
+          </button>
+        </div>
       </section>
 
+      {/* Mobile filter */}
+      {sidebarOpen && (
+        <div className="section-padding mb-6 md:hidden">
+          <FilterSidebar filters={filters} onChange={setFilters} />
+        </div>
+      )}
+
+      {/* Layout */}
       <section className="section-padding">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <Reveal key={`collection-${index}`}>
-              <div className="glass rounded-3xl p-6 min-h-[240px] flex flex-col justify-between">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-luxe-300">
-                    Collection {index + 1}
-                  </p>
-                  <h3 className="font-heading text-2xl mt-3">
-                    Placeholder Collection Name
-                  </h3>
-                  <p className="text-white/70 mt-3">
-                    Add a curated description for this collection segment,
-                    highlighting hero materials and export readiness.
-                  </p>
-                </div>
-                <button className="mt-6 text-sm text-immersive-200">View Range →</button>
-              </div>
-            </Reveal>
-          ))}
+        <div className="flex gap-8 items-start">
+          {/* Desktop sidebar */}
+          <div className="hidden md:block w-60 flex-shrink-0">
+            <FilterSidebar filters={filters} onChange={setFilters} />
+          </div>
+
+          {/* Product grid */}
+          <div className="flex-1 min-w-0">
+            <ProductGrid products={filtered} />
+          </div>
         </div>
       </section>
     </div>
   );
 }
+
